@@ -1,0 +1,11 @@
+{
+  "name": "notification",
+  "id": "1087803226966510488",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": [
+    "figma",
+    "figjam"
+  ],
+  "ui": "ui.html"
+}

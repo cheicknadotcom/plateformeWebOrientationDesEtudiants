@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta charset="ISO-8859-1" />
+<link rel="stylesheet"  media="screen" type="text/css" th:href="@{/bootstrap.css}"/>
+<link rel="stylesheet"  media="screen" type="text/css" th:href="@{/logins.css}"/>
+<title>FORMULAIR D'UNIVERSITE</title>
+</head>
+<body>
+<header> 
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark" th:fragment="header">
+
+    <a class="navbar-brand" th:href="@{/acceuil}">Accueil</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
+            aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample04">
+        <ul class="navbar-nav mr-auto">
+            <!--            <li class="nav-item" th:class="${#httpServletRequest.requestURI.contains('home')} ? 'nav-link active' : 'nav-link'">-->
+            <li class="nav-item" th:class="${activePage == 'espaceStudent'} ? 'nav-item active' : 'nav-item'">
+                <a class="nav-link" th:href="@{/acceuil}">Espace Etudiant<span class="sr-only"></span></a>
+            </li>
+           
+             <!--            <li class="nav-item" th:class="${#httpServletRequest.requestURI.contains('home')} ? 'nav-link active' : 'nav-link'">-->
+            <li class="nav-item" th:class="${activePage == 'espacecompany'} ? 'nav-item active' : 'nav-item'">
+                <a class="nav-link" th:href="@{/acceuil}">Espace Entreprise<span class="sr-only"></span></a>
+            </li>
+              <!--            <li class="nav-item" th:class="${#httpServletRequest.requestURI.contains('home')} ? 'nav-link active' : 'nav-link'">-->
+            <li class="nav-item" th:class="${activePage == 'universite'} ? 'nav-item active' : 'nav-item'">
+                <a class="nav-link" th:href="@{/acceuil}">Espace Universitaire<span class="sr-only"></span></a>
+            </li>
+            
+              <!--            <li class="nav-item" th:class="${#httpServletRequest.requestURI.contains('home')} ? 'nav-link active' : 'nav-link'">-->
+            <li class="nav-item" th:class="${activePage == 'a propos'} ? 'nav-item active' : 'nav-item'">
+                <a class="nav-link" th:href="@{/propos}">A propos<span class="sr-only"></span></a>
+            </li>
+             <!--            <li class="nav-item" th:class="${#httpServletRequest.requestURI.contains('contact')} ? 'nav-link active' : 'nav-link'">-->
+            <li class="nav-item" th:class="${activePage == 'contact'} ? 'nav-item active' : 'nav-item'">
+                <a class="nav-link" th:href="@{/Contact}">Contact</a>
+            </li>
+            
+        </ul>
+    </div>
+     <a class="navbar-brand" th:href="@{/}"><img  class="fit-picture" alt="La photo d'inscription des etudinats" th:src="@{/logo.png}"  align=right width="60" > 
+ </a>
+</nav>
+</header>
+<img  class="fit-picture" alt="La photo d'inscription des etudinats" th:src="@{/tel.png}"  align=right width="750" height="600" >
+<form action="/universites" >
+<table>
+			<tr>
+				<td>
+					<label>Nom d'universite:</label>
+				</td>
+				<td><input type="text" name="nom"  size= 50 >
+				</td>
+			</tr>
+			<tr>
+				<td><label>Description:</label></td>
+				<td>
+					<input type="text" name="description" size=50 />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>Region:</label>
+				</td>
+				<td>
+					<input type="text" name="region"  size= 50  >
+					<input type="text"  name="type" value="Universite" hidden="" >
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<label>Adresse email:</label>
+				</td>
+				<td>
+					<input type="email" name="addresseEmail"  size= 70 />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label> Mot de passe: </label>
+				</td>
+				<td>
+					<input type="password" name="password"  size= 50 />
+				</td>
+			</tr>
+			<tr>
+				<td><label> Confirmation: </label></td>
+				<td><input type="password" name="passwordConfirme"  size= 50 /></td>
+			</tr>
+			<tr>
+				<td>
+					<label>Numero de tel:</label>
+				</td>
+				<td>
+					<input type="tel" name="tel"  size= 70 />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>Adresse:</label>
+				</td>
+				<td>
+					<input type="text" name="adresse"  size= 50 />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>site web:</label>
+				</td>
+				<td>
+					<input type="text" name="siteWeb"  size= 50 />
+				</td>
+			</tr>
+		</table>
+		<br>
+		<div class="row">
+		<div class="col-md-2">
+		<button type="submit" class="btn btn-success " >Send</button>
+		</div>
+		<div class="col-md-2">
+		<button type="reset" class="btn btn-info " >Clear</button>
+		</div>
+	
+		</div>
+</form>
+<!-- site wide footer -->
+<footer class="text-center text-lg-start bg-dark text-muted">
+  <!-- Section: Social media -->
+  <section
+    class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+  >
+    <!-- Left -->
+    <div class="me-5 d-none d-lg-block">
+      <span>Rejoignez-nous sur les réseaux sociaux </span>
+    </div>
+    <!-- Left -->
+
+    <!-- Right -->
+    <div>
+      <a href="https://mobile.facebook.com/home.php?_rdc=1&_rdr" class="me-4 text-reset">
+         <img alt="images" th:src="@{/facebook.png}"  width="40">
+      </a>
+      <a href="" class="me-4 text-reset">
+         <img alt="images" th:src="@{/tweet.png}" width="40">
+      </a>
+      <a href="" class="me-4 text-reset">
+         <img alt="images" th:src="@{/google.png}"  width="40">
+      </a>
+      <a href="" class="me-4 text-reset">
+         <img alt="images" th:src="@{/insta.png}"  width="40">
+      </a>
+      <a href="" class="me-4 text-reset">
+         <img alt="images" th:src="@{/link.png}"  width="40">
+      </a>
+      <a href="https://github.com/" class="me-4 text-reset">
+         <img alt="images" th:src="@{/git.png}"  width="40">
+      </a>
+     
+      <a href="https://www.youtube.com/watch?v=vumpHtXmosw&t=535s" class="me-4 text-reset">
+       <img alt="" th:src="@{/youtube.png}" width="40">
+      </a>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3"></i>Dark-Scorpion
+          </h6>
+          <p>
+            Dark-Scorpion est un startup de developpement des logiciels desktop,mobile et des formations 
+            en ligne et domicile sur tous les langages de developpement.
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Les utilisateurs du plateforme
+          </h6>
+          <p>
+            <a th:href="@{/acceuil}" class="text-reset">Etudiant</a>
+          </p>
+          <p>
+            <a th:href="@{/acceuil}" class="text-reset">Entreprise</a>
+          </p>
+          <p>
+            <a th:href="@{/acceuil}" class="text-reset">Universite</a>
+          </p>
+          <p>
+            <a th:href="@{/acceuil}" class="text-reset">Administrateur</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Lens utiles
+          </h6>
+          <p>
+            <a th:href="@{/}" class="text-reset">Accueil</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Orientation</a>
+          </p>
+          <p>
+            <a th:href="@{/propos}"  class="text-reset">A propos</a>
+          </p>
+          <p>
+            <a th:href="@{/Contact}" class="text-reset">Contact</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Contact
+          </h6>
+          <p><i class="fas fa-home me-3"></i> Senegal Dakar, Fass-cassier</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            cheicknadoumbia100@gmail.com 
+          </p>
+          <p><i class="fas fa-phone me-3"></i>00221 77 443 57 52</p>
+          <p><i class="fas fa-print me-3"></i> + 221 76 768 93 85 </p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+   Copyright © 2022 Cheickna Doumbia 00221 77 443 52 57
+    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">GenieDev.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+</body>
+</html>

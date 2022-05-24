@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<link rel="stylesheet" media="screen" type="text/css"
+	th:href="@{/bootstrap.css}" />
+<title>La Pages D'acceuil du PlateForme Web Orientation</title>
+</head>
+<body style="background-color:menu;border: thin;">		
+
+	<header>
+		<div class="jumbotron text-center">
+			<h1>Welcom on Techologies Student</h1>
+		</div>
+		
+				<div class="row">
+				<nav class="nav navbar-default">
+					<div class="col-md-3">
+				
+					</div>
+					<div class="col-md-3">
+						<a th:href="@{/}">Accueil</a>
+					</div>
+					<div class="col-md-3">
+						<a th:href="@{/propos}">A propos</a>
+					</div>
+					<div class="col-md-3">
+						<a th:href="@{/Contact}">Contact</a>
+					</div>	
+					 <a class="navbar-brand" th:href="@{/acceuil}"><img  class="fit-picture" alt="La photo d'inscription des etudinats" th:src="@{/logo.png}"  align=right width="60" > 
+ </a>	
+					</nav>
+				</div>
+	</header>
+<form action="" method="POST">
+		<div class="row">
+			<div class="col-sm-3">
+					<header>
+						<nav>
+							<h1>Connexion</h1>
+						</nav>
+					</header>
+					<table>
+						<tr>
+							<td><img th:src="@{/administrateur.png}" border=2
+								align="left" width="20" height="35"></td>
+							<td><input type="text" placeholder="votre e-mail"
+								name="email" size=30></td>
+						</tr>
+						<tr>
+							<td><img th:src="@{/lock.png}" border=2 align="left"
+								width="20" height="35"></td>
+							<td><input type="password" name="email" size=30></td>
+						</tr>
+					</table>
+					<div class="col-sm-4 col-sm-offset-0">
+						<button type="submit" class="btn btn-info btn-md ">Connexion</button>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-offset-0">
+					<header>
+						<nav>
+							<h1>Etudiant et diplome</h1>
+						</nav>
+					</header>
+					<p>
+						Partagez vos experiences<br> Mettez a jour votre CV <br>
+						Trouvez un emloi ou stage <br>
+					</p>
+					<div>
+						<button type="button" class="btn btn-info btn-md " th:href="@{/infoEtudiant}"><a th:href="@{/infoEtudiant}">Creer un Compte</a></button>
+					</div>
+				</div>
+				<div class="col-md-3  col-sm-offset-0">
+					<nav>
+						<header>
+							<h1>ENTREPRISE</h1>
+						</header>
+					</nav>
+					<p>
+						Presentez vos activites<br> Posez une offre<br>
+						Consultez le profil des etudiants <br>
+					</p>
+					<div>
+						<button type="button" class="btn btn-info btn-md "
+							th:href="@{/infosEntreprise}"><a th:href="@{/infosEntreprise}">Creer un Compte</a></button>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-offset-0">
+					<header>
+						<nav>
+							<h1> Universite</h1>
+						</nav>
+					</header>
+					<p>
+						Partagez vos Filiere<br>vusialise les orientation <br>
+						Mise en jour des Demande <br>
+					</p>
+					<div>
+					<button type="button" class="btn btn-info btn-md "
+							th:href="@{/infosUniversite}"><a th:href="@{/infosUniversite}">Creer un Compte</a></button>
+					</div>
+					<br><br>
+				</div>
+				
+				<div class="col-md-2 md-offset-3">
+					<img alt="" th:src="@{/cadina.webp}" width="50" height="100">
+				</div>
+				<div class="col-md-2 md-offset-3" >
+					<img alt="" th:src="@{/etudiant.png}"  width="250" height="300">
+				</div>
+				<div class="col-md-2 md-offset-3" >
+					<img alt="" th:src="@{/etudEnt.jpg}"  width="250" height="300">
+				</div>
+				<div class="col-md-2 md-offset-3">
+					<img alt="" th:src="@{/entreprise.png}"  width="250" height="300">
+				</div>
+				<div class="col-md-2 md-offset-3">
+					<img alt="" th:src="@{/etud.jpg}"  width="250" height="300">
+				</div>
+			<div class="col-md-2 md-offset-3">
+					<img alt="" th:src="@{/university.jpg}"  width="250" height="300">
+				</div>
+		</div></form>
+		<br>
+		<!-- site wide footer -->	
+	<footer style="background: green;">
+		<nav class="navbar navbar-default">
+			<div class="col-md-4">
+				<p>
+					<a href="https://mobile.facebook.com/home.php?_rdc=1&_rdr">
+						 <img alt="images" th:src="@{/facebooks.png}"></a>
+			</div>
+
+			<div class="col-md-4">
+				<a href="https://www.youtube.com/watch?v=vumpHtXmosw&t=535s">
+				 <img alt="" th:src="@{/youtub.png}"> </a>
+			</div>
+			<div class="col-md-4">
+				<a href="https://web.whatsapp.com/"> <img alt="00221 76 768 85 93" th:src="@{/whatsapp.png}"></a>
+			</div>
+		</nav>
+		  <p>Copyright © 2022 Cheickna Doumbia 00221 77 443 52 57</p>
+	</footer>
+	
+</body>
+</html>

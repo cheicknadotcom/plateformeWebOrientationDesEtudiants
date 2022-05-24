@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<link rel="stylesheet" media="screen" type="text/css"
+	th:href="@{/bootstrap.css}" />
+<title>Formulaire d'Offres</title>
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark"
+			th:fragment="header">
+
+			<a class="navbar-brand" th:href="@{/acceuil}">Accueil</a>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarsExample04" aria-controls="navbarsExample04"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarsExample04">
+				<ul class="navbar-nav mr-auto">
+					<!--            <li class="nav-item" th:class="${#httpServletRequest.requestURI.contains('home')} ? 'nav-link active' : 'nav-link'">-->
+					<li class="nav-item"
+						th:class="${activePage == 'espaceStudent'} ? 'nav-item active' : 'nav-item'">
+						<a class="nav-link" th:href="@{/acceuil}">Espace Etudiant<span
+							class="sr-only"></span></a>
+					</li>
+
+					<!--            <li class="nav-item" th:class="${#httpServletRequest.requestURI.contains('home')} ? 'nav-link active' : 'nav-link'">-->
+					<li class="nav-item"
+						th:class="${activePage == 'espacecompany'} ? 'nav-item active' : 'nav-item'">
+						<a class="nav-link" th:href="@{/acceuil}">Espace Entreprise<span
+							class="sr-only"></span></a>
+					</li>
+					<!--            <li class="nav-item" th:class="${#httpServletRequest.requestURI.contains('home')} ? 'nav-link active' : 'nav-link'">-->
+					<li class="nav-item"
+						th:class="${activePage == 'universite'} ? 'nav-item active' : 'nav-item'">
+						<a class="nav-link" th:href="@{/acceuil}">Espace Universitaire<span
+							class="sr-only"></span></a>
+					</li>
+
+					<!--            <li class="nav-item" th:class="${#httpServletRequest.requestURI.contains('home')} ? 'nav-link active' : 'nav-link'">-->
+					<li class="nav-item"
+						th:class="${activePage == 'a propos'} ? 'nav-item active' : 'nav-item'">
+						<a class="nav-link" th:href="@{/propos}">A propos<span
+							class="sr-only"></span></a>
+					</li>
+					<!--            <li class="nav-item" th:class="${#httpServletRequest.requestURI.contains('contact')} ? 'nav-link active' : 'nav-link'">-->
+					<li class="nav-item"
+						th:class="${activePage == 'contact'} ? 'nav-item active' : 'nav-item'">
+						<a class="nav-link" th:href="@{/Contact}">Contact</a>
+					</li>
+
+				</ul>
+			</div>
+			<a class="navbar-brand" th:href="@{/acceuil}"><img
+				class="fit-picture" alt="La photo d'inscription des etudinats"
+				th:src="@{/logo.png}" align=right width="60"> </a>
+		</nav>
+	</header>
+	
+	<form action="/saveOffres" th:objet="${offres}">
+	<img class="fit-picture" alt="La photo d'inscription des etudinats"
+		th:src="@{/offre-emploi.png}" align=right width="840" height="360">
+		<table>
+			<tr>
+				<td><label>Nom Entreprise :</label></td>
+				<td><input type="text" name="nomEntreprise" size=50 th:field="${offres.nomEntreprise}"/>
+				</td>
+			</tr>
+			<tr>
+				<td><label>Choix d'offres:</label></td>
+				<td><select name="experience" id="experience">
+							<option value="Emploi">Emploi</option>
+							<option value="Stage">Stage</option>
+							
+					</select></td>
+			</tr>
+			<tr>
+				<td><label>Date d'offres:</label></td>
+				<td><input type="date" name="dateoffre" size=50 th:field="${offres.dateoffre}"></td>
+<!-- 				<td><input type="date" name="dateoffre" size=50 hidden="true" th:field="${offres.entreprise.id}"></td> -->
+			</tr>
+			<tr>
+				<td><label>Titre du poste:</label></td>
+				<td><input type="text" name="titre" size=50 th:field="${offres.titre}"/>
+				</td>
+			</tr>
+			<tr>
+				<td><label>La description du poste :</label></td>
+				<td><input type="text" name="description" size=50 th:field="${offres.description}"/></td>
+			</tr>
+			<tr>
+				<td><label>Salaire :</label></td>
+				<td><input type="text" name="salaire" size=50
+					th:field="${offres.salaire}"/></td>
+			</tr>
+			<tr>
+				<td><label>connaissance technique :</label></td>
+				<td><input type="text" name="connaissanceTechnique" size=50
+					th:field="${offres.connaissanceTechnique}"/></td>
+			</tr>
+			<tr>
+				<td><label>Diplome :</label></td>
+				<td><input type="text" name="diplome" size=50 th:field="${offres.diplome}"/></td>
+			</tr>
+			<tr>
+				<td><label>La region :</label></td>
+				<td><input type="text" name="region" size=50 th:field="${offres.region}"/></td>
+			</tr>
+		</table>
+		<br>
+		<br>
+		<div>
+			<button type="submit" class="btn btn-success col-sm-2"><img alt="" th:src="@{send.png}" width="30"></button>
+			<button type="reset" class="btn btn-info col-sm-2"><img alt="" th:src="@{net.png}" width="30"></button>
+		</div>
+		<br>
+	</form>
+
+	<!-- site wide footer -->
+	<footer class="text-center text-lg-start bg-dark text-muted">
+		<!-- Section: Social media -->
+		<section
+			class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+			<!-- Left -->
+			<div class="me-5 d-none d-lg-block">
+				<span>Rejoignez-nous sur les réseaux sociaux :</span>
+			</div>
+			<!-- Left -->
+
+			<!-- Right -->
+			<div>
+				<a href="https://mobile.facebook.com/home.php?_rdc=1&_rdr"
+					class="me-4 text-reset"> <img alt="images"
+					th:src="@{/facebook.png}" width="40">
+				</a> <a href="" class="me-4 text-reset"> <img alt="images"
+					th:src="@{/tweet.png}" width="40">
+				</a> <a href="" class="me-4 text-reset"> <img alt="images"
+					th:src="@{/google.png}" width="40">
+				</a> <a href="" class="me-4 text-reset"> <img alt="images"
+					th:src="@{/insta.png}" width="40">
+				</a> <a href="" class="me-4 text-reset"> <img alt="images"
+					th:src="@{/link.png}" width="40">
+				</a> <a href="https://github.com/" class="me-4 text-reset"> <img alt="images"
+					th:src="@{/git.png}" width="40">
+				</a> <a href="https://www.youtube.com/watch?v=vumpHtXmosw&t=535s"
+					class="me-4 text-reset"> <img alt="" th:src="@{/youtube.png}"
+					width="40">
+				</a>
+			</div>
+			<!-- Right -->
+		</section>
+		<!-- Section: Social media -->
+
+		<!-- Section: Links  -->
+		<section class="">
+			<div class="container text-center text-md-start mt-5">
+				<!-- Grid row -->
+				<div class="row mt-3">
+					<!-- Grid column -->
+					<div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+						<!-- Content -->
+						<h6 class="text-uppercase fw-bold mb-4">
+							<i class="fas fa-gem me-3"></i>Dark-Scorpion
+						</h6>
+						<p>Dark-Scorpion est un startup de developpement des logiciels
+							desktop,mobile et des formations en ligne et domicile sur tous
+							les langages de developpement.</p>
+					</div>
+					<!-- Grid column -->
+
+					<!-- Grid column -->
+					<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+						<!-- Links -->
+						<h6 class="text-uppercase fw-bold mb-4">Les utilisateurs du
+							plateforme</h6>
+						<p>
+							<a th:href="@{/acceuil}" class="text-reset">Etudiant</a>
+						</p>
+						<p>
+							<a th:href="@{/acceuil}" class="text-reset">Entreprise</a>
+						</p>
+						<p>
+							<a th:href="@{/acceuil}" class="text-reset">Universite</a>
+						</p>
+						<p>
+							<a th:href="@{/acceuil}" class="text-reset">Administrateur</a>
+						</p>
+					</div>
+					<!-- Grid column -->
+
+					<!-- Grid column -->
+					<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+						<!-- Links -->
+						<h6 class="text-uppercase fw-bold mb-4">Lens utiles</h6>
+						<p>
+							<a th:href="@{/acceuil}" class="text-reset">Accueil</a>
+						</p>
+						<p>
+							<a th:href="@{/acceuil}" class="text-reset">Orientation</a>
+						</p>
+						<p>
+							<a th:href="@{/propos}" class="text-reset">A propos</a>
+						</p>
+						<p>
+							<a th:href="@{/Contact}" class="text-reset">Contact</a>
+						</p>
+					</div>
+					<!-- Grid column -->
+
+					<!-- Grid column -->
+					<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+						<!-- Links -->
+						<h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+						<p>
+							<i class="fas fa-home me-3"></i> Senegal Dakar, Fass-cassier
+						</p>
+						<p>
+							<i class="fas fa-envelope me-3"></i> cheicknadoumbia100@gmail.com
+						</p>
+						<p>
+							<i class="fas fa-phone me-3"></i>00221 77 443 57 52
+						</p>
+						<p>
+							<i class="fas fa-print me-3"></i> + 221 76 768 93 85
+						</p>
+					</div>
+					<!-- Grid column -->
+				</div>
+				<!-- Grid row -->
+			</div>
+		</section>
+		<!-- Section: Links  -->
+
+		<!-- Copyright -->
+		<div class="text-center p-4"
+			style="background-color: rgba(0, 0, 0, 0.05);">
+			Copyright © 2022 Cheickna Doumbia 00221 77 443 52 57 <a
+				class="text-reset fw-bold" href="https://mdbootstrap.com/">GenieDev.com</a>
+		</div>
+
+		<!-- Copyright -->
+	</footer>
+	<!-- Footer -->
+</body>
+</html>
